@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+
+<head>
+  <meta charset="windows-1252">
+  <style>
+    /* Redefines */
+    BODY {font-family:Arial;margin: 0px auto;max-width:1024px;font-size:10pt;}
+    HEADER{display:block;text-align:center;}
+    NAV{display:block;padding: 10px;font-weight: bold;margin: 5px;}
+    SECTION{max-width:98%;}
+    ARTICLE{margin: 10px;padding: 10px;border-radius: 10px;}
+    ASIDE{display:block;width:25%;float:left;margin: 15px;font-style: italic;}
+    FOOTER{clear: both;display: block;padding: 15px;}
+    H1,H2,H3,H4,H5{page-break-after:avoid;}
+    P, TD, TH {font-family:Arial;font-size:10pt;}
+    LI {padding:3px;}
+    CODE {font-family:courier;font-size:10pt;}
+    PRE {font-size: 9pt;}
+    /* Classes */
+    .SlapStamp
+    {
+      color: #F47D31;
+      background-color: #fff;
+      -webkit-box-shadow: 2px 2px 20px #888;
+      -webkit-transform: rotate(-45deg);
+      -moz-box-shadow: 2px 2px 20px #888;
+      -moz-transform: rotate(-45deg);
+      position: absolute;
+      padding: 0px 150px;
+      text-align:center;
+    }
+    .important {font-family:verdana;font-weight:bold;color:red;}
+    .snippet {font-weight:bold;font-style:italic;}
+    .assignment{border:1px green solid;font-weight:bold;}
+    .classDate{border:2px red solid;font-weight:bolder;text-decoration:underline;}
+    .myAnswer{border:1px black solid;}
+    .clsH1{font-size:14pt;font-weight:bolder;}
+    .clsH2{font-size:12pt;font-weight:bold;}
+    .clsH3{font-size:10pt;font-weight:normal;}
+    .smallRed{line-height:18.0pt;font-size:7.5pt;color:#A81817;}
+    .greyAddress{font-size:7.5pt;color:gray;}
+    .LimeColor{border-bottom: 2px solid #0bce7e;width:200px;}
+    .underlineIt{text-decoration:underline;}
+    .dropshadow 
+    {
+      -moz-box-shadow: 3px 3px 4px #999; /* Firefox */
+      -webkit-box-shadow: 3px 3px 4px #999; /* Safari/Chrome */
+      box-shadow: 3px 3px 4px #999; /* Opera and other CSS3 supporting browsers */
+      -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')";/* IE 8 */
+      :progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999');/* IE 5.5 - 7 */ 
+    } 
+  </style>
+  <title>GCU 373 Group Project Final Report</title>
+</head>
+
+<body>
+
+<table id="container" width="800">
+<tr><td>
+
+<table id="content" width="98%" style='border:1px green solid;'>
+<tr><td valign="top">
+
+  <section>
+  
+  <article>
+    
+  <p style='line-height:200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>Introduction</span></b></p>
+  <p style='line-height:200%'><span style='font-size:12.0pt;
+line-height:200%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;'>            We often hear the term ‘ghetto’ used to describe a city
+    or town where people usually live due to a combination of social, economic,
+    and/or legal pressures. Many of the people who live in such areas struggle to
+    survive on minimal incomes, and are often portrayed in the media as people who
+    will steal and commit crimes in order to gain small luxuries in their lives.
+    With this in mind, we wanted to find out if a significant gap in income between
+    an affluent area and a low-wage area would be reflected in each area’s crime
+    rates. We feel that our resulting project, and more in-depth projects similar
+    to our own, will in the near future be able to aid crime enforcement in better
+    locating the parts of their city in which crime is most prevalent.</span></p>
+  <p style='line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>According
+    to the FBI, when assessing crime rates, one must consider many variables, some
+    of which, while having significant impact on crime, are not readily measurable
+    or applicable pervasively among all locales. Such factors could include but not
+    be limited to racial and ethnic makeup, age and gender composition, education
+    levels, and family structures.  Geographic and demographic factors specific to each jurisdiction must be
+    considered and applied if one is going to make an accurate and complete
+    assessment of crime in that jurisdiction. (“Variables Affecting Crime”).</span></p>
+  <p style='line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>Without
+    ignoring the FBI’s warning on crime rate statistics, we wanted to test the
+    simple question as to whether or not income was a contributing factor in crime
+    rates.   Most reasonable people would
+    assume that as median household income decreases in an area, crime rates
+    increases in that area.  Does it?  Is there a correlation between the two and to
+    what extent?  One way of testing this is
+    to build a GIS model to determine if there is a correlation between crime rates
+    and median household income.  According
+    to the US Census bureau’s population estimates for the year 2010, Tempe is the
+    8<sup>th</sup> largest city in Arizona with an estimated 161,719 people (“Tempe
+    Today”).  A GIS model of the city of
+    Tempe should provide a large enough sample to determine the correlation, if
+    any, to median household income and crime rates. </span></p>
+  <p style='line-height:200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>Literary
+    Review</span></b></p>
+  <p style='line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>There
+    is very little information in peer-reviewed journals regarding possible
+    correlations between crime rates and income in a given area. There are however,
+    a substantial number of studies regarding inequality and crime, which suggests
+    that income disparity between two neighboring areas may play a significant factor
+    in crime rates. It is suggested that the connections between crime rates and
+    level of inequality is as strong within urban areas as it is across countries,
+    and that envy is much easier to be directed at those who live closer to us
+    (Glaeser, 617).  If this is indeed
+    correct, then one might be able to assume that areas of a city such as Tempe
+    where income is below the city-wide average will see significantly more crime
+    than areas of Tempe where average household income is much higher.</span></p>
+  <p style='line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>Rundle
+    et al. discovered in their 2009 article in the Journal of Public Health Policy
+    that lower-earning census tracts within New York City had significantly fewer
+    street-side trees, clean streets, and sidewalk cafes. Furthermore, these poorer
+    census tracts had higher rates of felony complaints, drug-related arrests, and
+    vehicular-related accidents. This study by Rundle et al. would provide a good
+    deal of information in regards to how we should expect our own project to turn
+    out, mainly due to the large scope on which their research took place. Our own
+    research project consisted of a total of 32 census tracts, whereas the similar
+    project undertaken by Rundle et al. consisted of a total of 2,172 census
+    tracts.</span></p>
+  <p style='line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>Addy
+    et al. suggests that environmental factors, such as level of income, play an
+    important role on influencing physical activities. Areas with low socioeconomic
+    status were seen to have significantly higher crime rates as well as general
+    displeasure with their neighborhood and feelings of untrustworthiness around
+    neighbors (20). As with the other research into crime and income correlations
+    which we found, this suggests that an area’s average household income will
+    reflect significantly upon the prevalence of crime in that area.</span></p>
+  <p style='line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>Lyons-Ruth
+    et al. conducted research on mothers who came from low-income areas who were
+    the victims of some sort of abuse during their childhood. They found that among
+    45 mothers who came from these conditions, approximately 58% committed some
+    sort of criminal abuse or neglect towards their child while they were still in
+    their developmental years (271). These findings suggest that average household
+    income may be one of the prevailing factors behind the likelihood of a child
+    becoming a victim of early-developmental child abuse.</span></p>
+  <p style='line-height:200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>Methodology</span></b></p>
+  <p style='line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>To
+    accomplish our research we used data from our class instructor, along with information
+    from the 2010 US Census. We took a list of crimes which occurred within the
+    city of Tempe in the year 2010 and geocoded each crime by address to a map of
+    Tempe which we created via a map of Arizona downloaded from the US Census
+    Bureau. We imported each of these files into ArcMap, and then used Spatial
+    Analyst to get a count of the number of crimes in each of the 32 census tracts.
+    Next, we imported an excel file containing each of the 32 census tracts along
+    with their 2010 median household income, which we obtained from the US Census
+    Bureau. We proceeded to join this file to the Tempe map layer file using the
+    Tract field, which allowed us to create an income-based map of Tempe to compare
+    with the geocoded crime map. Using the resulting income-based map of Tempe, we
+    were finally able to look for any significant correlations between median
+    household income and number of crimes in that area throughout the entire city.</span></p>
+  <p style='line-height:200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>Limitations</span></b></p>
+  <p style='line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>In
+    the process of conducting our research we encountered some intricate challenges
+    along the way. During the process of collecting our data, we came across crime
+    records for the city of Tempe from the years 2003 to 2008. While this data
+    contained over 70000 instances of crime in Tempe over a six-year period, they
+    lacked addresses of where the crimes took place, and their locations were based
+    solely upon city voting districts. We found this to be problematic, since the
+    only Tempe income data which we could find from a reliable source was based on
+    census tracts.   </span></p>
+  <p style='line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>To
+    resolve this issue our instructor gave us a list of 2010 Tempe crime data with
+    addresses where each crime occurred, which allowed us to map occurrences of
+    crime via tract so that we could compare crime rates to average household
+    income. Further complications occurred when we were attempting to map this list
+    of 2010 crimes to addresses. Out of the approximately 15,000 crimes listed in
+    our 2010 data, a total of approximately 7800 crimes were properly mapped in
+    ArcMap. We decided that this was still a significantly large number of crime on
+    which we can research, and felt that within our given timeframe it would be
+    acceptable to continue our data analysis with these 7800 crimes.</span></p>
+  <p style='line-height:200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>Results</span></b></p>
+  <p align=center style='text-align:center;line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;
+'><img width=1024 height=768
+src="IncomeAndCrimesChartByTract.png" v:shapes="_x0000_i1025"></span></p>
+  <p align=center style='text-align:center;line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'><img width=417 height=536
+src="TractMapFinal.jpg"
+alt=IncomeDistributionTempeAZ.JPG v:shapes="Picture_x0020_2"></span></p>
+  <p style='line-height:200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>Discussion</span></b></p>
+  <p style='line-height:200%'><span style='font-size:12.0pt;
+line-height:200%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;'>            From our results, we can see that there is a significant
+    correlation between the average household income in a census tract and the
+    number of crimes that occurred in the year 2010 in that given track. In the
+    year 2010, the poverty line for a family of four in the United States was
+    $22,050. Knowing this, we can see that there are three census tracts (319101,
+    319102, 3187) which fall within $10,000 of the national poverty line. Out of
+    the total 32 census tracts, these three tracts alone accounted for
+    approximately 13.76% of the total crime in Tempe in 2010. The correlation between
+    income and crime rates is even further exemplified when one looks at the three
+    highest earning tracts. Out of 32 census tracts, the three highest earning
+    tracts (319907, 522720, 319910) accounted for only 4.85% of total Tempe crime.
+    This means that the three lowest-earning census tracts had a crime rate that
+    was a startling 284% higher than the rate seen in the three highest-earning
+    tracts.</span></p>
+  <p style='line-height:200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>Conclusion
+    and Future Research</span></b></p>
+  <p style='line-height:200%'><span style='font-size:12.0pt;
+line-height:200%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;'>            The information we found through our research suggests
+    that there may be some significant correlation between income rate in a
+    particular area and that area’s crime rate. While this suggests that level of
+    income has a significant effect on an area’s overall crime rate, we must still
+    take into account the other factors that may affect crime rates. An area such
+    as downtown Tempe may have a relatively high crime rate in comparison to its
+    population, and as a result the average household income in that area may not
+    appropriately reflect crime rates. Median age may also play a significant role
+    in an areas overall crime rate. One might assume that an area filled with
+    well-to-do retired seniors may see significantly lower crime than another
+    nearby area filled with families in their 20s and 30s whom never completed any
+    sort of college degree.</span></p>
+  <p style='line-height:200%'><span style='font-size:12.0pt;
+line-height:200%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;'>            In the future, our research should be expanded in order
+    to account for other factors which significantly affect crime rates. As
+    suggested by the Federal Bureau of Investigation, crime rates are influenced by
+    a number of factors including but not limited to racial/ethnic makeup, median
+    age, education level, and family structure. These factors, along with
+    overcrowding due to population, should be researched in-depth to see what
+    effects, if any, they have on crime rates. It is our hope that in the near
+    future there will be more in-depth studies into these factors and their effects
+    on crime rates, as they can both assist law enforcement in concentrating their
+    efforts on serious commonly-occurring crimes, and better inform the public of
+    how they can protect themselves and others from falling victim to crimes.</span></p>
+  
+  </article>
+  
+  <footer>
+  
+  <p align=center style='text-align:center;line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>Works
+    Cited</span></p>
+  <p style='line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>Andrew
+    Rundle, et al. &quot;Disparities in Urban Neighborhood Conditions: Evidence
+    from GIS Measures and Field Observation in New York City.&quot; <i>Journal of
+    Public Health Policy</i> 30.(2009): S264-S285. <i>Academic Search Premier</i>.
+    EBSCO. Web. 29 Apr. 2011.</span></p>
+  <p style='line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>Cheryl
+    L. Addy, et al. “Socioeconomic Status and Perceptions of Access and Safety for
+    Physical Activity.” <i>Annals of Behavioral
+    Medicine</i> 28.1 (2004): 20-28. <i>Academic
+    Search Premier</i>. EBSCO. Web. 29 Apr. 2011.</span></p>
+  <p style='line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>Glaeser,
+    Edward L., Matt Resseger, and Kristina Tobio. &quot;INEQUALITY IN CITIES.&quot; <i>Journal of Regional Science</i> 49.4 (2009): 617-646. <i>Academic Search
+    Premier</i>. EBSCO. Web. 29 Apr. 2011.</span></p>
+  <p class=body-paragraph style='line-height:
+200%'>Lyons-Ruth, Karlenz, and Deborah Block. &quot;The Disturbed Caregiving
+    System: Relations among Childhood Trauma, Maternal Caregiving, and Infant
+    Affect and Attachment.&quot; <i>Infant Mental Health Journal</i> 17.3 (1996):
+    77-95. <i>Academic Search Premier</i>. EBSCO. Web. 2 May 2011.</p>
+  <p style='line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>“Tempe
+    Today.” <i>City of Tempe</i>. Web. 22 Feb.
+    2011 &lt;http://www.tempe.gov/tempetoday/images/ Current.pdf&gt;.</span></p>
+  <p style='line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Times New Roman","serif"'>“Variables
+    Affecting Crime.” <i>Federal Bureau of
+    Investigation</i>. Web. 22 Feb. 2011 &lt;http://www2.fbi.gov/
+    ucr/cius2009/about/variables_affecting_crime.html&gt;.</span></p>
+    
+</footer>
+
+</section>
+
+</td></tr></table>
+</td></tr></table>
+
+</body>
+</html>
